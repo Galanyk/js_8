@@ -1,9 +1,18 @@
 const buttonEl = document.querySelector('#btn');
-const textInputEl = document.querySelector('[name="text-input"]');
+const inputEl = document.querySelector('#input');
+const listEl = document.querySelector('#list');
+
 buttonEl.addEventListener('click', onClick);
-const textEl = document.querySelector('#container');
 
 function onClick() {
-    console.log("clicked");
-    textEl.textContent = textInputEl.value;
+    const data = inputEl.value.trim();
+    if (data) {
+        const textEl = document.createElement('li');
+        textEl.textContent = data;
+        listEl.append(textEl);
+        inputEl.value = '';
+    }else{
+        inputEl.value = '';
+        alert("Wrong operation")
+    }
 }
